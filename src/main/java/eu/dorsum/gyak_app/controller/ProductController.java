@@ -2,7 +2,9 @@ package eu.dorsum.gyak_app.controller;
 
 import eu.dorsum.gyak_app.model.Product;
 import eu.dorsum.gyak_app.service.ProductService;
+import eu.dorsum.gyak_app.service.impl.SlowProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,7 @@ import java.util.List;
 @RestController
 public class ProductController {
 
+    @Qualifier("fastProductService")
     @Autowired
     private ProductService productService;
 
