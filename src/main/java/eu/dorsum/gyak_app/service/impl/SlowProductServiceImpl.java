@@ -4,6 +4,7 @@ import eu.dorsum.gyak_app.model.Product;
 import eu.dorsum.gyak_app.repository.ProductRepository;
 import eu.dorsum.gyak_app.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,10 +14,16 @@ import java.util.stream.Collectors;
 @Service("slowProductService")
 public class SlowProductServiceImpl implements ProductService {
 
+    @Value("${custom.gyak.prop}")
+    private String customGyakProp;
+
     @Autowired
     private ProductRepository productRepository;
 
     public List<Product> getProducts() {
+
+        String valami = customGyakProp;
+
         List<Product> filteredProducts = new ArrayList<>();
         List<Product> result;
         result = productRepository.findAll();
