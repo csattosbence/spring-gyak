@@ -20,9 +20,16 @@ public class SlowProductServiceImpl implements ProductService {
         List<Product> filteredProducts = new ArrayList<>();
         List<Product> result;
         result = productRepository.findAll();
-        filteredProducts = result.stream().filter(product -> product.getPrice() > 200).collect(Collectors.toList());
 
-        return filteredProducts;
+        //filteredProducts = result.stream().filter(product -> product.getPrice() > 200).collect(Collectors.toList());
+
+        return result;
+    }
+
+    @Override
+    public Product getProdcutByName(String name) {
+        Product product = productRepository.findByName(name);
+        return product;
     }
 
     public void addProduct(Product product) {

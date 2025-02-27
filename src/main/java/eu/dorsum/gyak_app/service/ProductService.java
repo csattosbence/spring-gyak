@@ -12,4 +12,5 @@ public interface ProductService {
 
     public void addProduct(Product product);
 
+    Product getProdcutByName(String name);
 }

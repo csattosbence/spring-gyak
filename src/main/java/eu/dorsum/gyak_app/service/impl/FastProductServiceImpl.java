@@ -22,6 +22,11 @@ public class FastProductServiceImpl implements ProductService {
     }
 
     @Override
+    public Product getProdcutByName(String name) {
+        return null;
+    }
+
+    @Override
     public void addProduct(Product product) {
 
     }
